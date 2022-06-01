@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/atulyadav92/argocd-test.git
+    targetRevision: HEAD
+    path: helm-demo
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test-application
